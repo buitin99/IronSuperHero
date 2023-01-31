@@ -5,13 +5,28 @@ using UnityEngine;
 [System.Serializable]
 public class GameData 
 {
-    public List<Maps> mapsInfor;
-
     private Maps maps;
+    public List<int> totalLevel;
+
+    public int gold;
+    public int diamond;
+    public List<Maps> mapsInfor;
+    public int LastestLevel {
+        get {
+            return totalLevel.Count > 0 ? totalLevel[totalLevel.Count-1] : 0;
+        }
+    }
+
 
     public GameData()
     {
+        totalLevel = new List<int>();
         mapsInfor = new List<Maps>();
+
+
+        gold = 0;
+        diamond = 0;
+        totalLevel.Add(0);
         mapsInfor.Add(this.maps);
     }
 
@@ -29,32 +44,24 @@ public class GameData
 [System.Serializable]
 public class Maps
 {
-    public int             currentLevels;
+    public int             level;
     public int             totalWaves;
-    public int             totalEnemies;
+    public int             EnemyInWave;
     public int             totalSprites;
-    public int             pointSpawnEnemies;
-    public int             pointSpawnSprite;
-    public List<Vector3>   positionSpawnEnemies;
+    public List<Vector3>   positionSpawnEnemy;
     public List<Vector3>   positionSpawnSprite;
 
 
-    public Maps(int leves, int waves, int enemies, int sprites, int pointEnemies, int pointSprites, List<Vector3> positionEnemies, List<Vector3> positionSprites)
+    public Maps(int leves, int waves, int enemies, int sprites, List<Vector3> positionEnemies, List<Vector3> positionSprites)
     {
-
-        positionSpawnEnemies = new List<Vector3>();
+        positionSpawnEnemy = new List<Vector3>();
         positionSpawnSprite  = new List<Vector3>();
 
-        currentLevels = leves;
+        level = leves;
         totalWaves = waves;
-        totalEnemies = enemies;
+        EnemyInWave = enemies;
         totalSprites = sprites;
-        pointSpawnEnemies = pointEnemies;
-        pointSpawnSprite = pointSprites;
-        positionSpawnEnemies = positionEnemies;
+        positionSpawnEnemy = positionEnemies;
         positionSpawnSprite = positionSprites;
-
-        // positionSpawnEnemies.Add(Vector3.zero);
-        // positionSpawnSprite.Add(Vector3.zero);
     }
 }

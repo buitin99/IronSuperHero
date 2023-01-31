@@ -1,54 +1,53 @@
 {
+    "totalLevel": [
+        0
+    ],
+    "gold": 0,
+    "diamond": 0,
     "mapsInfor": [
         {
-            "currentLevels": 0,
+            "level": 0,
             "totalWaves": 0,
-            "totalEnemies": 0,
+            "EnemyInWave": 0,
             "totalSprites": 0,
-            "pointSpawnEnemies": 0,
-            "pointSpawnSprite": 0,
-            "positionSpawnEnemies": [],
+            "positionSpawnEnemy": [],
             "positionSpawnSprite": []
         },
         {
-            "currentLevels": 1,
-            "totalWaves": 1,
-            "totalEnemies": 1,
-            "totalSprites": 1,
-            "pointSpawnEnemies": 1,
-            "pointSpawnSprite": 1,
-            "positionSpawnEnemies": [
+            "level": 1,
+            "totalWaves": 3,
+            "EnemyInWave": 6,
+            "totalSprites": 3,
+            "positionSpawnEnemy": [
                 {
                     "x": 0.0,
                     "y": 0.0,
-                    "z": -1.0
-                }
-            ],
-            "positionSpawnSprite": [
-                {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": -1.0
-                }
-            ]
-        },
-        {
-            "currentLevels": 10,
-            "totalWaves": 10,
-            "totalEnemies": 10,
-            "totalSprites": 10,
-            "pointSpawnEnemies": 10,
-            "pointSpawnSprite": 10,
-            "positionSpawnEnemies": [
-                {
-                    "x": -41.679054260253909,
-                    "y": 0.0,
-                    "z": -24.29618263244629
+                    "z": 0.0
                 },
                 {
                     "x": 0.0,
                     "y": 0.0,
-                    "z": -58.761146545410159
+                    "z": 0.0
+                },
+                {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 }
             ],
             "positionSpawnSprite": [
@@ -61,38 +60,11 @@
                     "x": 0.0,
                     "y": 0.0,
                     "z": 0.0
-                }
-            ]
-        },
-        {
-            "currentLevels": 2,
-            "totalWaves": 2,
-            "totalEnemies": 2,
-            "totalSprites": 2,
-            "pointSpawnEnemies": 2,
-            "pointSpawnSprite": 2,
-            "positionSpawnEnemies": [
-                {
-                    "x": -41.679054260253909,
-                    "y": 0.0,
-                    "z": -24.29618263244629
                 },
                 {
                     "x": 0.0,
                     "y": 0.0,
-                    "z": -58.761146545410159
-                }
-            ],
-            "positionSpawnSprite": [
-                {
-                    "x": -78.81316375732422,
-                    "y": 0.0,
-                    "z": -92.3393783569336
-                },
-                {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": -146.91207885742188
+                    "z": 0.0
                 }
             ]
         }

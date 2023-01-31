@@ -32,6 +32,8 @@ public class MapEditor : Editor
         if (GUILayout.Button("Create Map"))
         {
             mapInitialization.SaveDataToJson();
+            mapInitialization.ResetProperty();
+            Debug.Log("Generate Maps Success!");
         }
     }
 

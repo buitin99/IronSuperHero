@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MapInitialization : MonoBehaviour
 {   
-    public int currentLevels;
+    [ReadOnly]
+    public int level;
     public int totalWaves;
     public int totalEnemies;
+    public int enemyInWave;
     public int totalSprites;
-    public int pointSpawnEnemies;
-    public int pointSpawnSprites;
     public Vector3[] positionSpawnEnemiesList;
     public Vector3[] positionSpawnSpritesList;
 
@@ -19,19 +19,39 @@ public class MapInitialization : MonoBehaviour
     private void Awake() 
     {
         gameData = GameData.Load();
+        Debug.Log(gameData.gold);
+        Debug.Log(gameData.diamond);
+        Debug.Log(gameData.diamond);
+
 
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void ResetProperty()
+    {
+        Reset();
+    }
+
+    private void Reset() 
+    {
+        level++;
+        totalWaves    = 0;
+        totalEnemies  = 0;
+        enemyInWave   = 0;
+        totalSprites  = 0;
+        positionSpawnEnemiesList = null;
+        positionSpawnSpritesList = null;
     }
 
 
@@ -50,9 +70,7 @@ public class MapInitialization : MonoBehaviour
             posSpawnSprites.Add(item1);
         }
 
-        Maps maps = new Maps(currentLevels, totalWaves, totalEnemies, totalSprites, pointSpawnEnemies,  pointSpawnSprites, posSpawnEnemies, posSpawnSprites);
-
-        gameData.mapsInfor.Add(maps);
+        gameData.mapsInfor.Add(new Maps(level, totalWaves, totalEnemies, totalSprites, posSpawnEnemies, posSpawnSprites));
         gameData.Save();
     }
 }

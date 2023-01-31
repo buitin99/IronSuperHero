@@ -1,32 +1,34 @@
 using UnityEngine;
-using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    private Animator animator;
-    private int      alertHash;
-    private int      nonAlertHash;
-    private int      hitPointHash;
-    private float    curentTimeCombo = 3f;
+    private Animator    animator;
+    private int         alertHash;
+    private int         nonAlertHash;
+    private int         hitPointHash;
+    private float       curentTimeCombo = 3f;
+    private GameData    gameData;
+    private GameManager gameManager;
+    private int         level;
 
-    public List<Vector3> ts = new List<Vector3>();  
-    public List<Vector3> tg = new List<Vector3>();   
+    public CinemachineVirtualCamera virtualCamera;
+    public GameObject               playBtn;
+    public GameObject               endBtn;
+    public GameObject               shopBtn;
+    public GameObject               heroBtn;
+    public GameObject               settingBtn;
+    public GameObject               playerGo;
 
-    private GameData gameData;
-    private Maps maps;
-    private MapInitialization mapInitialization;
+    //LoadingScene
+    public GameObject               loadingScreen;
+
+    
     private void Awake() 
     {
         gameData = GameData.Load();
-        // ts.Add(Vector3.zero);
-        ts.Add(Vector3.back);
-        tg.Add(Vector3.back);
-
-        mapInitialization = FindObjectOfType<MapInitialization>();
-
-
+        gameManager = GameManager.Instance;
     }
 
     // Start is called before the first frame update
@@ -38,15 +40,33 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    public void SaveGame()
+    public void PlayGame()
     {
-        // Maps maps = new Maps(1, 1, 1, 1, 1, 1, ts, tg);
+        loadingScreen.SetActive(true);
+        gameData = GameData.Load();
+        gameManager.StartGame();
 
-        // gameData.mapsInfor.Add(maps);
-        // gameData.Save();
-        mapInitialization.SaveDataToJson();
+        playBtn.SetActive(false);
+        shopBtn.SetActive(false);
+        heroBtn.SetActive(false);
+        settingBtn.SetActive(false);
+
     }
+
+    public void EndGame()
+    {
+        playBtn.SetActive(true);
+        shopBtn.SetActive(true);
+        heroBtn.SetActive(true);
+        settingBtn.SetActive(true);
+
+        // if ()
+        // {
+        //     gameData.mapsInfor[gameData.mapsInfor.].currentLevels
+        // }
+
+    }
+
 }
