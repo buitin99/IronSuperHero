@@ -1,18 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class SoundManager : MonoBehaviour
+[RequireComponent(typeof(AudioSource))]
+public class SoundManager : Singleton<SoundManager>
 {
-    // Start is called before the first frame update
-    void Start()
+    private AudioSource audioSource;
+    public UnityEvent<bool> OnMute = new UnityEvent<bool>();
+    private GameManager gameManager;
+    private bool isMute;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+        gameManager = GameManager.Instance;
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        // isMute = gameManager.settingData.mute;
+        audioSource.mute = isMute;
+    }
+
+
+    public void PlayOneShot(AudioClip audioClip, float volumeScale = 1) {
+        audioSource.PlayOneShot(audioClip, volumeScale);
+    }
+
+    public AudioSource AddAudioSource(GameObject parent) {
+        AudioSource audioSource = parent.AddComponent<AudioSource>();
+        audioSource.mute = isMute;
+        return audioSource;
+    }
+
+    public void MuteGame(bool mute) {
+        isMute =  mute;
+        audioSource.mute = mute;
+        // gameManager.settingData.mute = mute;
+        // gameManager.settingData.Save();
+        OnMute?.Invoke(mute);
     }
 }

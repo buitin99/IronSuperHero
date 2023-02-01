@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226f91f6f52042a45aaaf0590d70d4ca, type: 3}
   m_Name: Hulk
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 7893181723664968036, guid: 793b47af084f6ad448fc58fbb7671ae3, type: 3}

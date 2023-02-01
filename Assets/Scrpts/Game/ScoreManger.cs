@@ -84,8 +84,8 @@ public class ScoreManger : Singleton<ScoreManger>
     private void StartGame()
     {
         wave = 1;
-        obstacles1.SetActive(true);
-        obstacles2.SetActive(true);
+        // obstacles1.SetActive(true);
+        // obstacles2.SetActive(true);
     }
 
     private void OnDisable() 

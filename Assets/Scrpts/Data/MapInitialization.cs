@@ -19,11 +19,6 @@ public class MapInitialization : MonoBehaviour
     private void Awake() 
     {
         gameData = GameData.Load();
-        Debug.Log(gameData.gold);
-        Debug.Log(gameData.diamond);
-        Debug.Log(gameData.diamond);
-
-
     }
 
     // Start is called before the first frame update
